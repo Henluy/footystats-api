@@ -16,107 +16,38 @@
         "summary": "Liste des ligues",
         "description": "Obtenir la liste des ligues disponibles.",
         "operationId": "getLeagueList",
-        "parameters": [
-          {
-            "name": "key",
-            "in": "query",
-            "description": "Clé API pour l'authentification.",
-            "required": true,
-            "schema": {
-              "type": "string"
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Liste des ligues retournée avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "country": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
-        ]
-      }
-    },
-    "/todays-matches": {
-      "get": {
-        "summary": "Matchs du jour",
-        "description": "Obtenir les matchs programmés pour une date spécifique.",
-        "operationId": "getTodaysMatches",
-        "parameters": [
-          {
-            "name": "key",
-            "in": "query",
-            "description": "Clé API pour l'authentification.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "date",
-            "in": "query",
-            "description": "Date des matchs au format YYYY-MM-DD.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/lastx": {
-      "get": {
-        "summary": "Statistiques des derniers matchs",
-        "description": "Obtenir les statistiques des 5, 6 ou 10 derniers matchs d'une équipe.",
-        "operationId": "getTeamLastStats",
-        "parameters": [
-          {
-            "name": "key",
-            "in": "query",
-            "description": "Clé API pour l'authentification.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "team_id",
-            "in": "query",
-            "description": "ID de l'équipe que vous souhaitez récupérer.",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ]
-      }
-    },
-    "/stats-data-btts": {
-      "get": {
-        "summary": "Statistiques BTTS",
-        "description": "Obtenir les meilleures équipes, rencontres et ligues pour le BTTS.",
-        "operationId": "getBttsStats",
-        "parameters": [
-          {
-            "name": "key",
-            "in": "query",
-            "description": "Clé API pour l'authentification.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/stats-data-over25": {
-      "get": {
-        "summary": "Statistiques Over 2.5",
-        "description": "Obtenir les meilleures équipes, rencontres et ligues pour les matchs avec plus de 2,5 buts.",
-        "operationId": "getOver25Stats",
-        "parameters": [
-          {
-            "name": "key",
-            "in": "query",
-            "description": "Clé API pour l'authentification.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
+        }
       }
     }
   },
@@ -124,11 +55,10 @@
     "securitySchemes": {
       "ApiKeyAuth": {
         "type": "apiKey",
-        "in": "query",
-        "name": "key"
+        "in": "header",
+        "name": "X-Api-Key"
       }
-    },
-    "schemas": {}
+    }
   },
   "security": [
     {
@@ -136,3 +66,4 @@
     }
   ]
 }
+
