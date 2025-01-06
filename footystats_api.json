@@ -15,6 +15,7 @@
       "get": {
         "summary": "Liste des ligues",
         "description": "Obtenir la liste des ligues disponibles.",
+        "operationId": "getLeagueList",
         "parameters": [
           {
             "name": "key",
@@ -32,6 +33,7 @@
       "get": {
         "summary": "Matchs du jour",
         "description": "Obtenir les matchs programmés pour une date spécifique.",
+        "operationId": "getTodaysMatches",
         "parameters": [
           {
             "name": "key",
@@ -58,6 +60,7 @@
       "get": {
         "summary": "Statistiques des derniers matchs",
         "description": "Obtenir les statistiques des 5, 6 ou 10 derniers matchs d'une équipe.",
+        "operationId": "getTeamLastStats",
         "parameters": [
           {
             "name": "key",
@@ -84,6 +87,7 @@
       "get": {
         "summary": "Statistiques BTTS",
         "description": "Obtenir les meilleures équipes, rencontres et ligues pour le BTTS.",
+        "operationId": "getBttsStats",
         "parameters": [
           {
             "name": "key",
@@ -101,6 +105,7 @@
       "get": {
         "summary": "Statistiques Over 2.5",
         "description": "Obtenir les meilleures équipes, rencontres et ligues pour les matchs avec plus de 2,5 buts.",
+        "operationId": "getOver25Stats",
         "parameters": [
           {
             "name": "key",
@@ -122,7 +127,8 @@
         "in": "query",
         "name": "key"
       }
-    }
+    },
+    "schemas": {}
   },
   "security": [
     {
