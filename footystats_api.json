@@ -1,0 +1,132 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FootyStats API",
+    "description": "API pour récupérer des données sur les matchs, équipes, ligues, et statistiques de football.",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.football-data-api.com"
+    }
+  ],
+  "paths": {
+    "/league-list": {
+      "get": {
+        "summary": "Liste des ligues",
+        "description": "Obtenir la liste des ligues disponibles.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "description": "Clé API pour l'authentification.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/todays-matches": {
+      "get": {
+        "summary": "Matchs du jour",
+        "description": "Obtenir les matchs programmés pour une date spécifique.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "description": "Clé API pour l'authentification.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Date des matchs au format YYYY-MM-DD.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/lastx": {
+      "get": {
+        "summary": "Statistiques des derniers matchs",
+        "description": "Obtenir les statistiques des 5, 6 ou 10 derniers matchs d'une équipe.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "description": "Clé API pour l'authentification.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "team_id",
+            "in": "query",
+            "description": "ID de l'équipe que vous souhaitez récupérer.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/stats-data-btts": {
+      "get": {
+        "summary": "Statistiques BTTS",
+        "description": "Obtenir les meilleures équipes, rencontres et ligues pour le BTTS.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "description": "Clé API pour l'authentification.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/stats-data-over25": {
+      "get": {
+        "summary": "Statistiques Over 2.5",
+        "description": "Obtenir les meilleures équipes, rencontres et ligues pour les matchs avec plus de 2,5 buts.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "description": "Clé API pour l'authentification.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}
